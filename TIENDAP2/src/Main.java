@@ -13,6 +13,10 @@ Implemente o complete correctamente las clases, constructores y funciones para q
 - Suba el link de github. El último commit debe ser antes de que finalice la hora del examen
  */
 
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Tienda tienda = new Tienda();
@@ -33,7 +37,7 @@ public class Main {
 
         // Obtener el producto más costoso (MacBook Pro)
         IProducto producto_mas_costoso = tienda.obtenerProductoMasCostoso();
-        System.out.println("\nEl producto más costoso es: "+producto_mas_costoso.getModelo());
+        System.out.println("\nEl producto mas costoso es: "+producto_mas_costoso.getModelo());
 
 
         //Por puntos extras... incluir aquí el método
@@ -44,6 +48,22 @@ public class Main {
         else{
             System.out.println("NO existe el producto");
         }
+
+        Map<String, Integer> catalogo = new HashMap<>();
+        catalogo.put("Galaxy S21", 800);
+        catalogo.put("MacBook Pro", 2500);
+        catalogo.put("IpadAir", 1100);
+        Scanner scanner =new Scanner(System.in);
+        System.out.println("ingrese el nombre del produto");
+
+        String ProductoABuscar= scanner.nextLine();
+        if (catalogo.containsKey(ProductoABuscar)){
+            System.out.println("el producto -"+ ProductoABuscar +"- esta en el catalogo : ****" + catalogo+"****");
+        } else {
+            System.out.println("producto no encontrado en el catalogo ");
+        }
+
+
 
     }
 }
